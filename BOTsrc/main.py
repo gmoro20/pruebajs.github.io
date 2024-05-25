@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 
 
-token = "6566593316:AAEcOJhOnL-BjW7JX8m9Qp79Es3a9JLn59o"
+token = "...."
 bot = telebot.TeleBot(token)
 
 @bot.message_handler(content_types=['web_app_data'])
