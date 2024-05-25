@@ -3,17 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejemplo de Página Web Simple</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Formulario de Reserva</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>¡Escribe algo!</h1>
-        <input type="text" id="texto" placeholder="Escribe aquí">
-        <button onclick="mostrarTexto()">Escribir</button>
-        <div id="textoMostrado"></div>
+    <div class="form-container">
+        <form id="reservaForm">
+            <label for="instalacion">Instalación:</label>
+            <select id="instalacion" name="instalacion">
+                <option value="Deusto">Deusto</option>
+                <option value="Sani">Sani</option>
+                <option value="LaPeña">La Peña</option>
+            </select>
+            
+            <label for="deporte">Deporte:</label>
+            <select id="deporte" name="deporte">
+                <option value="Padel">Pádel</option>
+                <option value="Futbol11">Fútbol 11</option>
+                <option value="Futbol5">Fútbol 5</option>
+            </select>
+            
+            <label for="campo">Campo:</label>
+            <select id="campo" name="campo">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            
+            <label for="luz">Luz:</label>
+            <select id="luz" name="luz">
+                <option value="Si">Sí</option>
+                <option value="No">No</option>
+            </select>
+            
+            <label for="fecha">Fecha y Hora:</label>
+            <input type="datetime-local" id="fecha" name="fecha">
+            
+            <div class="button-container">
+                <button type="button" id="aceptarBtn">Aceptar</button>
+                <button type="button" id="cancelarBtn">Cancelar</button>
+            </div>
+        </form>
     </div>
-    <script src="./assets/js/script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>

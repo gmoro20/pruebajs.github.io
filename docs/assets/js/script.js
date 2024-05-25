@@ -1,6 +1,3 @@
-function mostrarTexto() {
-    var textoIngresado = document.getElementById("texto").value;
-    var textoMostrado = document.getElementById("textoMostrado");
-    Telegram.WebApp.sendData(textoIngresado)
-    textoMostrado.innerHTML = textoIngresado;
-}
+document.getElementById('cancelarBtn').addEventListener('click', function() {
+    document.getElementById('reservaForm').reset();
+});
