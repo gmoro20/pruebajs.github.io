@@ -41,7 +41,7 @@ label {
     color: #333333;
 }
 
-select, input[type="datetime-local"] {
+select, input[type="date"] {
     margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #cccccc;
@@ -51,9 +51,20 @@ select, input[type="datetime-local"] {
     color: #333333;
 }
 
-select:focus, input[type="datetime-local"]:focus {
+select:focus, input[type="date"]:focus {
     border-color: #007bff;
     outline: none;
+}
+
+.fecha-hora-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fecha-hora-container div {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
 }
 
 .button-container {
@@ -85,5 +96,3 @@ button {
 #cancelarBtn:hover {
     background-color: #c82333;
 }
-
-
