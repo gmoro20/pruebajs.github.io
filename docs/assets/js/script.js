@@ -5,5 +5,11 @@ function resetForm() {
 
 // Define la función send
 function send() {
-	window.Telegram.WebApp.sendData("hola");
+	const data = {
+		"instalacion": document.getElementById('instalacion').value,
+		"deporte": document.getElementById('deporte').value,
+		"campo": document.getElementById('campo').value,
+		"fecha": document.getElementById('fecha').value		
+	};
+	Telegram.WebApp.sendData(JSON.stringify(data));
 };
