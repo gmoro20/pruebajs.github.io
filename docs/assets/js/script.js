@@ -5,5 +5,5 @@ function resetForm() {
 
 // Define la función send
 function send() {
-	Telegram.WebApp.sendData("hola");
+	window.Telegram.WebApp.sendData("hola");
 };
