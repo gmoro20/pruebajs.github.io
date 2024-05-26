@@ -1,7 +1,8 @@
 // Define la función delete
-function delete() {
+function resetForm() {
     document.getElementById('reservaForm').reset();
-}
+};
+
 // Define la función send
 function send() {
 	const data = {
@@ -9,6 +10,7 @@ function send() {
 		"deporte": document.getElementById('deporte').value,
 		"campo": document.getElementById('campo').value,
 		"fecha": document.getElementById('fecha').value		
-    }
-    Telegram.WebApp.sendData(data)
+    };
+	const jsonData = JSON.stringify(data);
+    Telegram.WebApp.sendData(JSON.stringify(data))
 }
