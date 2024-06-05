@@ -8,11 +8,12 @@ body {
     margin: 0;
 }
 
-.form-container {
-    background-color: #ffffff;
+/* Plantilla de fuera */ 
+.formWrapper {
+    background-color: #fffff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.5);
     width: 100%;
     max-width: 400px;
     box-sizing: border-box;
@@ -38,12 +39,13 @@ form {
 label {
     margin-bottom: 5px;
     font-weight: bold;
-    color: #333333;
+    color: #33333;
 }
 
-select, input[type="date"] {
+/* Estilos para select e inputs de tipo date, text y password */
+select, input[type="date"], input[type="text"], input[type="password"] {
     margin-bottom: 15px;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid #cccccc;
     border-radius: 4px;
     background-color: #f9f9f9;
@@ -51,23 +53,40 @@ select, input[type="date"] {
     color: #333333;
 }
 
-select:focus, input[type="date"]:focus {
+/* Estilos para el enfoque (focus, clicado) de los elementos */
+select:focus, input[type="date"]:focus, input[type="text"]:focus, input[type="password"]:focus {
     border-color: #007bff;
     outline: none;
 }
 
-.fecha-hora-container {
+#courtWrapper div {
+	display: flex;
+    flex-direction: column;
+}
+
+.userWrapper {
     display: flex;
     justify-content: space-between;
 }
 
-.fecha-hora-container div {
+.userWrapper div {
     display: flex;
     flex-direction: column;
     width: 48%;
 }
 
-.button-container {
+.datetimeWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.datetimeWrapper div {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+.buttonWrapper {
     display: flex;
     justify-content: space-between;
 }
@@ -81,18 +100,18 @@ button {
     color: #ffffff;
 }
 
-#aceptarBtn {
+#aceptBtn {
     background-color: #28a745;
 }
 
-#aceptarBtn:hover {
+#aceptBtn:hover {
     background-color: #218838;
 }
 
-#cancelarBtn {
+#cancelBtn{
     background-color: #dc3545;
 }
 
-#cancelarBtn:hover {
+#cancelBtn:hover {
     background-color: #c82333;
 }
