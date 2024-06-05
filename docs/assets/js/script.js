@@ -6,7 +6,6 @@ function resetForm() {
 // Define la función send
 function send() {
 	const data = {
-
 		"instalacion": document.getElementById('instalacion').value,
 		"deporte": document.getElementById('deporte').value,
 		"campo": document.getElementById('campo').value,
