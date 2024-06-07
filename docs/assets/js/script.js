@@ -5,13 +5,58 @@ function resetForm() {
 
 // Define la función send
 function send() {
-	const data = {
-		"instalacion": document.getElementById('instalacion').value,
-		"deporte": document.getElementById('deporte').value,
-		"campo": document.getElementById('campo').value,
-		"fecha": document.getElementById('fecha').value
+	const formData = {
+		"instalacion": document.getElementById('installation').value,
+		"deporte": document.getElementById('sport').value,
+		"campo": document.getElementById('court').value,
+		"luz": document.getElementById("ligth").checked ? true : false,
+		"fecha": document.getElementById("date").value,
+		"hora": document.getElementById("hour").value,
+		"usuario": document.getElementById("user").value,
+		"contraseña": document.getElementById("password").value
+	}
+
+	completed = true
+	for (var key in formData) {
+		if (formData.hasOwnProperty(key) && formData[key] === "") {
+			console.log("El campo '" + key + "' está vacío.");
+			completed = false;
+		}
+	}
+	if (!completed) {
+		alert("Por favor, completa todos los campos.");
+	}
+
+	const datetime = new Date(`${formData["fecha"]}T${formData["hora"]}`);
+	if (datetime.setDate(datetime.getDate() - 2) < new Date() && completed) {
+		if (datetime.setDate(datetime.getDate() + 2) < new Date()) {
+			alert('Ya se ha pasado la hora de esta reserva.')
+		}
+		else {
+			alert('Esta reserva ya se puede hacer desde la pagina si sigue libre.')
+		}
+		completed = false
+	} 
+
+
+	if (completed) {
+		const dDAT = {
+			"datetime": datetime,
+			"cookie": "ewfqewrt4wefqwefqwefqw",
+			"bookData": {
+				"installation": infoBk[formData["instalacion"]]['id'],
+				"sport": infoBk[formData["instalacion"]]["sport"][formData["deporte"]]['id'],
+				"court": infoBk[formData["instalacion"]]["sport"][formData["deporte"]]['court'][formData["campo"]],
+			},
+			"account": {
+				"user": formData["usuario"],
+				"pass": formData["contraseña"]
+			},
+			"email": false,
+			"browser": false
+		};
+		Telegram.WebApp.sendData(JSON.stringify(dDAT));
 	};
-	Telegram.WebApp.sendData(JSON.stringify(data));
 };
 
 function updateCourts(infoBk) {
@@ -35,6 +80,12 @@ function updateCourts(infoBk) {
                 });		
 	} else {
 		courtWrapper.style.display = 'none';
+		courts.forEach(court => {
+			const option = document.createElement('option');
+			option.value = court;  
+			option.textContent = court; 
+			courtSelect.appendChild(option);
+		});	
 	}
 };
 

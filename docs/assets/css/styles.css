@@ -115,3 +115,83 @@ button {
 #cancelBtn:hover {
     background-color: #c82333;
 }
+
+/* Slider luz */
+.switchWrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.switchWrapper label:first-child {
+    margin-right: 20px; /* Ajusta este valor para cambiar el espaciado */
+  }
+
+/* Define un contenedor relativo para el interruptor, estableciendo su tamaño y haciéndolo inline-block para alinearse con otros elementos en línea. */
+.switch {
+position: relative;
+display: inline-block;
+width: 60px;
+height: 25px;
+}
+
+/* Oculta el input checkbox real, haciéndolo invisible y sin ocupar espacio en el layout. */
+.switch input { 
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+/* Define la apariencia del slider (interruptor), posicionándolo absolutamente dentro de su contenedor, llenando todo el espacio disponible. Establece un color de fondo gris y agrega una transición suave de 0.4 segundos para cambios de estado. */
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+/* Define la apariencia de la "bolita" del slider, posicionándola absolutamente dentro del slider, con un tamaño de 26x26 píxeles, un color de fondo blanco y transiciones suaves para los cambios de estado. */
+.slider:before {
+position: absolute;
+content: "";
+height: 23px;
+width: 23px;
+left: 1px;
+bottom: 1px;
+background-color: white;
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+/* Cambia el color de fondo del slider a azul (#2196F3) cuando el input checkbox está marcado. */
+input:checked + .slider {
+background-color: #2196F3;
+}
+
+/* Añade un efecto de sombra azul alrededor del slider cuando el input checkbox recibe foco. */
+input:focus + .slider {
+box-shadow: 0 0 1px #2196F3;
+}
+
+/* Mueve la "bolita" del slider 26 píxeles a la derecha cuando el input checkbox está marcado, creando el efecto de deslizamiento. */
+input:checked + .slider:before {
+-webkit-transform: translateX(35px);
+-ms-transform: translateX(35px);
+transform: translateX(35px);
+}
+
+/* Redondea las esquinas del slider, haciendo que el contenedor tenga bordes redondeados (círculo) cuando se utiliza la clase "round". */
+.slider.round {
+border-radius: 34px;
+}
+
+/* Redondea las esquinas de la "bolita" del slider, haciéndola circular cuando se utiliza la clase "round". */
+.slider.round:before {
+border-radius: 50%;
+}
+  
