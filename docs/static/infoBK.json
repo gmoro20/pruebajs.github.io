@@ -1,15 +1,15 @@
 {
 	"Abusu-La Peña": {
-		"id": 1,
+		"id": 10,
 		"sport": {
 			"Fronton": {
-				"id": "FF",
+				"id": "FR",
 				"court": {
 					"Fronton 01": 0
 				}
 			},
 			"Pabellon": {
-				"id": "FF",
+				"id": "PB",
 				"court": {
 					"Pabellon 01": 0
 				}
@@ -17,23 +17,23 @@
 		}
 	},
 	"Artxanda": {
-		"id": 3,
+		"id": 2,
 		"sport": {
 			"Campo Futbol 5 Hierba Artif.": {
-				"id": "FF",
+				"id": "PH",
 				"court": {
 					"Campo Futbol 5 Hierba Artif.": 0
 				}
 			},
 			"Fronton": {
-				"id": "FF",
+				"id": "FR",
 				"court": {
 					"Fronton 01": 0,
 					"Fronton 02": 1
 				}
 			},
 			"Padel Cubierto": {
-				"id": "FF",
+				"id": "PC",
 				"court": {
 					"Padel Cubierto 01": 0,
 					"Padel Cubierto 02": 1,
@@ -42,14 +42,14 @@
 				}
 			},
 			"Padel Descubierto": {
-				"id": "FF",
+				"id": "PD",
 				"court": {
 					"Padel Descubierto 05": 0,
 					"Padel Descubierto 06": 1
 				}
 			},
 			"Tenis Descubierto": {
-				"id": "FF",
+				"id": "TD",
 				"court": {
 					"Tenis Descub. Hierba Artif. 01": 0
 				}
@@ -57,22 +57,22 @@
 		}
 	},
 	"Deusto": {
-		"id": 1,
+		"id": 4,
 		"sport": {
 			"Campo Futbol 5 Hierba Artif.": {
-				"id": "FF",
+				"id": "PH",
 				"court": {
 					"Campo Futbol 5 Hierba Artif.": 0
 				}
 			},
 			"Pabellon": {
-				"id": "FF",
+				"id": "PB",
 				"court": {
 					"Pabellon 01": 0
 				}
 			},
 			"Squash": {
-				"id": "FF",
+				"id": "SQ",
 				"court": {
 					"Squash 01": 0
 				}
@@ -80,35 +80,35 @@
 		}
 	},
 	"Rekalde": {
-		"id": 1,
+		"id": 5,
 		"sport": {
 			"Campo Futbol 11": {
-				"id": "FF",
+				"id": "CF",
 				"court": {
 					"Campo Futbol 11 A": 0
 				}
 			},
 			"Campo Futbol 7": {
-				"id": "FF",
+				"id": "F7",
 				"court": {
 					"Campo Futbol 7 A": 0
 				}
 			},
 			"Fronton": {
-				"id": "FF",
+				"id": "FR",
 				"court": {
 					"Fronton 01": 0,
 					"Fronton 02": 1
 				}
 			},
 			"Pabellon": {
-				"id": "FF",
+				"id": "PB",
 				"court": {
 					"Pabellon 01": 0
 				}
 			},
 			"Squash": {
-				"id": "FF",
+				"id": "SQ",
 				"court": {
 					"Squash 01": 0,
 					"Squash 02": 1
@@ -117,10 +117,10 @@
 		}
 	},
 	"San Ignacio": {
-		"id": 1,
+		"id": 7,
 		"sport": {		
 			"Campo Futbol 11": {
-				"id": "FF",
+				"id": "CF",
 				"court": {
 					"Campo Futbol 11 A": 0,
 					"Campo Futbol 7 A (1/2)": 1,
@@ -128,19 +128,19 @@
 				}
 			},
 			"Fronton": {
-				"id": "FF",
+				"id": "FR",
 				"court": {
 					"Fronton 01": 0
 				}
 			},
 			"Pabellon": {
-				"id": "FF",
+				"id": "PB",
 				"court": {
 					"Pabellon 01": 0
 				}
 			},
 			"Padel Cubierto": {
-				"id": "FF",
+				"id": "PC",
 				"court": {
 					"Padel Cubierto 01": 0,
 					"Padel Cubierto 02": 1,
@@ -153,14 +153,14 @@
 				}
 			},
 			"Squash": {
-				"id": "FF",
+				"id": "SQ",
 				"court": {
 					"Squash 01": 0,
 					"Squash 02": 1
 				}
 			},
 			"Tenis Cubierto": {
-				"id": "FF",
+				"id": "TC",
 				"court": {
 					"Tenis Cubierto Hierba Artif. 8": 0,
 					"Tenis Cubierto Resina Sinte. 01": 1,
@@ -169,7 +169,7 @@
 				}
 			},
 			"Tenis Descubierto": {
-				"id": "FF",
+				"id": "TD",
 				"court": {
 					"Tenis Descub. Resina Sinte. 04": 0,
 					"Tenis Descub. Resina Sinte. 05": 1,
@@ -183,13 +183,13 @@
 		"id": 1,
 		"sport": {
 			"Campo Futbol 5 Hierba Artif.": {
-				"id": "FF",
+				"id": "PH",
 				"court": {
 					"Campo Futbol 5 Hierba Artif.": 0
 				}
 			},
 			"Fronton": {
-				"id": "FF",
+				"id": "FR",
 				"court": {
 					"Fronton 01": 0,
 					"Fronton 02": 1,
@@ -198,27 +198,27 @@
 				}
 			},
 			"Pabellon": {
-				"id": "FF",
+				"id": "PB",
 				"court": {
 					"Pabellon 01": 0
 				}
 			},
 			"Squash": {
-				"id": "FF",
+				"id": "SQ",
 				"court": {
 					"Squash 01": 0,
 					"Squash 02": 1
 				}
 			},
 			"Tenis Cubierto": {
-				"id": "FF",
+				"id": "TC",
 				"court": {
 					"Tenis Cubierto Resina Sinte. 01": 0,
 					"Tenis Cubierto Resina Sinte. 02": 1
 				}
 			},
 			"Tenis Descubierto": {
-				"id": "FF",
+				"id": "TD",
 				"court": {
 					"Tenis Descub. Resina Sinte. 03": 0,
 					"Tenis Descub. Resina Sinte. 04": 1,
@@ -228,23 +228,23 @@
 		}
 	},
 	"Zorroza": {
-		"id": 1,
+		"id": 8,
 		"sport": {
 			"Pabellon": {
-				"id": "FF",
+				"id": "PB",
 				"court": {
 					"Pabellon 01": 0
 				}
 			},
 			"Padel Cubierto": {
-				"id": "FF",
+				"id": "PC",
 				"court": {
 					"Padel Cubierto 01": 0,
 					"Padel Cubierto 02": 1
 				}
 			},
 			"Tenis Descubierto": {
-				"id": "FF",
+				"id": "TD",
 				"court": {
 					"Tenis Descubierto Quick 01": 0
 				}
