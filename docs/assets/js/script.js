@@ -41,7 +41,7 @@ function send() {
 
 	if (completed) {
 		const dDAT = {
-			"datetime": datetime,
+			"datetime": `${formData["fecha"]}T${formData["hora"]}`,
 			"cookie": "ewfqewrt4wefqwefqwefqw",
 			"bookData": {
 				"installation": infoBk[formData["instalacion"]]['id'],
