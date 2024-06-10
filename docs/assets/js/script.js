@@ -81,6 +81,7 @@ function updateCourts(infoBk) {
                 });		
 	} else {
 		courtWrapper.style.display = 'none';
+		courtSelect.innerHTML = '';
 		courts.forEach(court => {
 			const option = document.createElement('option');
 			option.value = court;  
