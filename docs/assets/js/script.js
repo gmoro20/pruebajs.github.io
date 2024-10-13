@@ -13,7 +13,8 @@ function send() {
 		"fecha": document.getElementById("date").value,
 		"hora": document.getElementById("hour").value,
 		"usuario": document.getElementById("user").value,
-		"contraseña": document.getElementById("password").value
+		"contraseña": document.getElementById("password").value,
+		"paidMethod": document.getElementById("bizum").checked ? document.getElementById("bizum").value : document.getElementById("card").value
 	}
 
 	completed = true
@@ -38,7 +39,6 @@ function send() {
 		completed = false
 	} 
 
-
 	if (completed) {
 		const dDAT = {
 			"datetime": `${formData["fecha"]}T${formData["hora"]}`,
@@ -53,6 +53,7 @@ function send() {
 				"user": formData["usuario"],
 				"pass": formData["contraseña"]
 			},
+			"paidMethod": formData["paidMethod"],
 			"email": false,
 			"browser": false
 		};

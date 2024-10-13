@@ -87,7 +87,34 @@ select:focus, input[type="date"]:focus, input[type="text"]:focus, input[type="pa
     width: 48%;
 }
 
+.paymentWrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.paymentWrapper div {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
+    width: 48%;
+}
+
+.paymentOptions label {
+    margin-right: 112px; 
+}
+
+.paymentOptions {
+    gap: 4px;
+}
+
+.paymentOptions input {
+    margin-right: 2px;
+    transform: translateY(-4px);
+}
+
 .buttonWrapper {
+    margin-top: 15px;
     display: flex;
     justify-content: space-between;
 }

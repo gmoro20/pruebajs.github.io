@@ -75,6 +75,16 @@
                     </select>
                 </div>
             </div>
+            <div class="paymentWrapper">
+                <label>Forma de pago:</label>
+                <div class="paymentOptions">
+                    <input type="radio" id="bizum" name="payment" value="rbtBizum" checked>
+                    <label for="bizum">Bizum</label>
+                    
+                    <input type="radio" id="card" name="payment" value="rbtTarjeta">
+                    <label for="card">Tarjeta</label>
+                </div>
+            </div>
             
             <div class="buttonWrapper">
                 <button type="button" id="aceptBtn" onclick="send()">Aceptar</button>
