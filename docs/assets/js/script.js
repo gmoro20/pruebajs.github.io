@@ -14,7 +14,7 @@ function send() {
 		"hora": document.getElementById("hour").value,
 		"usuario": document.getElementById("user").value,
 		"contraseña": document.getElementById("password").value,
-		"paidMethod": document.getElementById("bizum").checked ? document.getElementById("bizum").value : document.getElementById("card").value
+		"payMethod": document.getElementById("bizum").checked ? document.getElementById("bizum").value : document.getElementById("card").value
 	}
 
 	completed = true
@@ -53,7 +53,7 @@ function send() {
 				"user": formData["usuario"],
 				"pass": formData["contraseña"]
 			},
-			"paidMethod": formData["paidMethod"],
+			"payMethod": formData["payMethod"],
 			"email": false,
 			"browser": false
 		};
