@@ -47,7 +47,7 @@ function send() {
 				"installation": infoBk[formData["instalacion"]]['id'],
 				"sport": infoBk[formData["instalacion"]]["sport"][formData["deporte"]]['id'],
 				"court": infoBk[formData["instalacion"]]["sport"][formData["deporte"]]['court'][formData["campo"]],
-				"light": formData["luz"]
+				"light": false // formData["luz"]
 			},
 			"account": {
 				"user": formData["usuario"],
