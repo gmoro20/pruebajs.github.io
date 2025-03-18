@@ -9,7 +9,7 @@ function send() {
 		"instalacion": document.getElementById('installation').value,
 		"deporte": document.getElementById('sport').value,
 		"campo": document.getElementById('court').value,
-		"luz": document.getElementById("ligth").checked ? true : false,
+		// "luz": document.getElementById("ligth").checked ? true : false,
 		"fecha": document.getElementById("date").value,
 		"hora": document.getElementById("hour").value,
 		"usuario": document.getElementById("user").value,
