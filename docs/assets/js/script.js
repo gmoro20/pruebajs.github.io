@@ -1,10 +1,11 @@
 // Define la función delete
 function resetForm() {
-    document.getElementById('reservaForm').reset();
+    document.getElementById('formWrapper').reset();
 };
 
 // Define la función send
 function send() {
+	console.log("aceptado")
 	const formData = {
 		"instalacion": document.getElementById('installation').value,
 		"deporte": document.getElementById('sport').value,
