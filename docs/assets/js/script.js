@@ -153,3 +153,17 @@ document.addEventListener('click', event => {
 	  focusedElement.blur()
 	}
   })
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Evita el envío del formulario
+
+        let inputs = Array.from(document.querySelectorAll("input[type='password'], input[type='text']"));
+        let currentIndex = inputs.indexOf(document.activeElement);
+
+        if (currentIndex !== -1 && currentIndex < inputs.length - 1) {
+            inputs[currentIndex + 1].focus();
+        } else {
+            document.activeElement.blur(); // Si es el último, cierra el teclado
+        }
+    }
+});
