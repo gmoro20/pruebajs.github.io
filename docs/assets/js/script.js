@@ -144,3 +144,12 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Agregar el evento de cambio de selección de deporte
 	sportSelect.addEventListener('change', () => {updateCourts(infoBk);});
 });
+
+// Esconde teclado clicando cualquier parte 
+document.addEventListener('click', event => {
+	const focusedElement = document.activeElement
+  
+	if (focusedElement && focusedElement !== event.target && ['INPUT', 'TEXTAREA'].includes(focusedElement.tagName)) {
+	  focusedElement.blur()
+	}
+  })
