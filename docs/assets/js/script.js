@@ -5,12 +5,11 @@ function resetForm() {
 
 // Define la función send
 function send() {
-	console.log("aceptado")
+	console.log("Aceptado")
 	const formData = {
 		"instalacion": document.getElementById('installation').value,
 		"deporte": document.getElementById('sport').value,
 		"campo": document.getElementById('court').value,
-		// "luz": document.getElementById("ligth").checked ? true : false,
 		"fecha": document.getElementById("date").value,
 		"hora": document.getElementById("hour").value,
 		"usuario": document.getElementById("user").value,
@@ -43,95 +42,109 @@ function send() {
 	if (completed) {
 		const dDAT = {
 			"datetime": `${formData["fecha"]}T${formData["hora"]}`,
-			"cookie": "qb2axki4npctpgu1xkz0wxdt",
 			"bookData": {
-				"installation": infoBk[formData["instalacion"]]['id'],
-				"sport": infoBk[formData["instalacion"]]["sport"][formData["deporte"]]['id'],
-				"court": infoBk[formData["instalacion"]]["sport"][formData["deporte"]]['court'][formData["campo"]],
-				"light": false // formData["luz"]
+				"installation": formData["instalacion"],
+				"sport": formData["deporte"],
+				"court": formData["campo"]
 			},
 			"account": {
 				"user": formData["usuario"],
 				"pass": formData["contraseña"]
 			},
-			"payMethod": formData["payMethod"],
-			"email": false,
-			"browser": false
+			"payMethod": formData["payMethod"]
 		};
 		Telegram.WebApp.sendData(JSON.stringify(dDAT));
 	};
 };
 
-function updateCourts(infoBk) {
+function updateCourts() {
 	// Cargar estado
 	const installationSelect = document.getElementById('installation');
 	const sportSelect = document.getElementById('sport');
 	const courtSelect = document.getElementById('court');
 	const courtWrapper = document.getElementById('courtWrapper');
 	
-	// Mostrar u ocultar el campo de selección dependiendo del deporte seleccionado
-	const courts = Object.keys(infoBk[installationSelect.value]["sport"][sportSelect.value]["court"]);
+	// Obtener los valores seleccionados
+    const codigoComplejo = installationSelect.value;
+    const codigoActividad = sportSelect.value;
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const fechaReserva = `${day}%2F${month}%2F${today.getFullYear()}`;
 	
-	if (courts.length > 1) {
-		courtWrapper.style.display = 'block';
-		courtSelect.innerHTML = '';
-		courts.forEach(court => {
-                    const option = document.createElement('option');
-                    option.value = court;  
-                    option.textContent = court; 
-                    courtSelect.appendChild(option);
-                });		
-	} else {
-		courtWrapper.style.display = 'none';
-		courtSelect.innerHTML = '';
-		courts.forEach(court => {
-			const option = document.createElement('option');
-			option.value = court;  
-			option.textContent = court; 
-			courtSelect.appendChild(option);
-		});	
-	}
+	fetch(`https://cms.bilbaokirolak.eus/api/ados/anon-get-listado-instalaciones-reserva?codigoComplejo=${codigoComplejo}&codigoActividad=${codigoActividad}&fechaReserva=${fechaReserva}`)
+		.then(response => response.json())
+		.then(data => {
+			// Extraer las pistas del objeto
+			const courts = Array.isArray(data.instalaciones) ? data.instalaciones : [data.instalaciones];
+			
+			if (courts.length > 1) {
+				courtWrapper.style.display = 'block';
+				courtSelect.innerHTML = '';
+				courts.forEach(court => {
+					const option = document.createElement('option');
+					option.value = parseInt(court.codigoInstalacion.slice(-4));
+					option.textContent = court.nombreInstalacion;
+					courtSelect.appendChild(option);
+				});
+			} else {
+				courtWrapper.style.display = 'none';
+				courtSelect.innerHTML = '';
+				courts.forEach(court => {
+					const option = document.createElement('option');
+					option.value = parseInt(court.codigoInstalacion.slice(-4));
+					option.textContent = court.nombreInstalacion;
+					courtSelect.appendChild(option);
+				});
+			}
+		})
+	.catch(error => {
+		console.error('Error al cargar las pistas:', error);
+	});
 };
 
-function updateSports(infoBk) {
+function updateSports() {
 	// Cargar estado
 	const installationSelect = document.getElementById('installation');
 	const sportSelect = document.getElementById('sport');
 	
-	// Actualizar campo y desportes en funcion seleccion instalcion
-	const sports = Object.keys(infoBk[installationSelect.value]["sport"]);
+	// Actualizar deportes en función de la selección de instalación
+	const codigoComplejo = installationSelect.value;
+	fetch(`https://cms.bilbaokirolak.eus/api/ados/anon-get-listado-actividades-reserva?codigoComplejo=${codigoComplejo}`)
+		.then(response => response.json())
+		.then(data => {
+			sportSelect.innerHTML = '';
+			data.forEach(actividad => {
+				const option = document.createElement('option');
+				option.value = actividad.codigoActividad;
+				option.textContent = actividad.nombreActividad;
+				sportSelect.appendChild(option);
+			});
+		})
+		.catch(error => {
+			console.error('Error al cargar las actividades:', error);
+		});
 
-	sportSelect.innerHTML = '';
-
-	sports.forEach(sport => {
-		const option = document.createElement('option');
-		option.value = sport;
-		option.textContent = sport;
-		sportSelect.appendChild(option);
-	});
-
-	updateCourts(infoBk);
+	updateCourts();
 };
 
 document.addEventListener('DOMContentLoaded', function() {
 	// Lee el archivo JSON y actualiza las opciones
-	fetch('./static/infoBK.json')
+	fetch('https://cms.bilbaokirolak.eus/api/ados/anon-get-listado-complejos-reserva')
 		.then(response => response.json())
 		.then(data => {
 			infoBk = data;
 			
-			// Inicializa las opciones de instalaciones
-			const installations = Object.keys(infoBk);
-			installations.forEach(installation => {
+			// Inicializa las opciones de instalaciones desde la API
+			data.forEach(installation => {
 				const option = document.createElement('option');
-				option.value = installation;
-				option.textContent = installation;
+				option.value = installation.codigoComplejo;
+				option.textContent = installation.nombreComplejo;
 				installationSelect.appendChild(option);
 			});
-			
-			// Inicializar las opciones de deportes y campos cuando se carga la página
-			updateSports(infoBk);
-
+				
+				// Inicializar las opciones de deportes y campos cuando se carga la página
+				updateSports();
 		});
 
 	// Leyendo estado
@@ -139,10 +152,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	const sportSelect = document.getElementById('sport');
 
 	// Agregar el evento de cambio de selección de instalación
-	installationSelect.addEventListener('change', () => {updateSports(infoBk);});
+	installationSelect.addEventListener('change', () => {updateSports();});
 
 	// Agregar el evento de cambio de selección de deporte
-	sportSelect.addEventListener('change', () => {updateCourts(infoBk);});
+	sportSelect.addEventListener('change', () => {updateCourts();});
 });
 
 // Esconde teclado clicando cualquier parte 
@@ -153,6 +166,8 @@ document.addEventListener('click', event => {
 	  focusedElement.blur()
 	}
   })
+  
+// Maneja navegacion del Enter
 document.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         event.preventDefault(); // Evita el envío del formulario
